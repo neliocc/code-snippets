@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <!--- Link JQuery Here-->
+
+        <script>
+
+            var CSSSelector="#id or .class or tag";
+            //Target Element in JQuery
+            $(CSSSelector) // Ex:$("#id")  $(".class") $("tag")
+
+            //Get element text
+            var elementText=$(CSSSelector).text();
+
+            //Set element text
+            $(CSSSelector).text("New text");
+
+            //Buttons, Inputs, Selects, Texareas and other inputs do not have text
+
+            //Get element HTML
+            var elementHTML=$(CSSSelector).html();
+
+            //Set element HTML
+            $(CSSSelector).html("<b>New text</b>");
+
+            //Modify CSS property
+            var propertyName="Ex: font-size, color, etc";//Any CSS property
+            var propertyValue="Ex: 10px, red, etc"; //A valid value for the corresponding property
+            $(CSSSelector).css(propertyName,propertyValue);
+
+            //Set the value for an attribute for an element
+            var attributeName="Ex: name, data-size, etc";//Any name without spaces or special characters
+            var attributeValue="Ex: John Dow, 10";//Any value
+            $(CSSSelector).attr(attributeName,attributeValue);
+
+            //Get value of an attribute from an element
+            var attributeValue=$(CSSSelector).attr(attributeName);
+
+            //Special type of attribute (Data attributes)
+            
+            //If you set the name of an attribute like this:
+            $(CSSSelector).attr("data-something",attributeValue);
+            //You can retrieve the value of the attribute like this:
+            $(CSSSelector).data("something");
+
+            //Target event on element
+            var eventName="Ex: click, keyup, etc";//Any valid event name
+            $(CSSSelector).on(eventName,function(event) {
+
+                //Get the element that received the event
+                $(this) //Ex if the click was on a button $(this) would be the button itself
+                //To get information about the element that got the event
+                var elementText=$(this).text();
+
+                var elementName=$(this).attr("name");
+
+                // To modify the CSS of the element
+                $(this).css("color","red");
+                
+
+            });
+
+            //How to clear an element and remove all its content
+            $(CSSSelector).empty();
+
+            //How to append an element to another, or data to an element
+            //Get the element to append
+            var firstElement=$(CSSSelector1);
+            //Append the element
+            $(CSSSelector1).append(firstElement);
+
+            //How to create an element with jQuery
+            var htmlTag="Ex: <div>, <p>, etc";//Any valid opening html tag
+            var element=$(htmlTag);
+
+            //How make an element append itself to another
+            $(CSSSelector1).appendTo(CSSSelector);
+
+            //How to make an AJAX request
+            var queryURL="Ex: https://google.com";//Any valid URL
+            var queryMethod="Ex: GET,POST, etc"//Any valid HTTP method 
+            $.ajax({
+                url:queryURL,
+                method:queryMethod
+            }).then(function(response) {
+                console.log(response);
+                //Do here anything you want with the response
+            });
+
+            //Shortcut to make a GET request
+            $.get(queryURL).then(function(response) {
+                console.log(response);
+                //Do here anything you want with the response
+            });
+
+            //How to generate a random number
+            var maxValue="Ex: 100";//Any number
+            //Generate a random number between 0 and maxValue - 1
+            var randomNumber=Math.floor(Math.random()*maxValue);
+            //Generate a random number between 0 and maxValue
+            var randomNumber=Math.floor(Math.random()*maxValue)+1;
+
+
+            //To convert an Object to JSON
+            var objectToConvert="Ex {name:'Something'}";//Any JavaScript Object
+            var objectJSON=JSON.stringify(objectToConvert);
+            //To convert JSON into an Object
+            var JSONToConvert="Ex {'name':'Something'}";
+            var objectFromJSON=JSON.parse(JSONToConvert);
+            //NOTE: JSON only works with Objects and Arrays, not needed for strings, booleans or numbers.
+
+            //How to save a value to localStorage
+            var key="Ex: name, id, etc"; //The key can be any word you want
+            var value="Ex: John Doe, 1892, etc"; //The value can be any string you want
+            localStorage.setItem(key,value);
+
+            //How to retrieve a value from localStorage
+            var key="Ex: name, id, etc"; //The key can be any word you want
+            var valueFromLocalStorage=localStorage.getItem(key);
+
+            //How to delete an item from localStorage
+            var key="Ex: name, id, etc"; //The key can be any word you want
+            localStorage.removeItem(key);
+
+            //How to do API query strings with arguments
+            // attribute1 is a valid argument name from the API docs
+            // attribute2 is a valid argument name from the API docs
+            // value1 and value2 are any valid value for the respective attributes
+            var queryURL="https://api.com/?attribute1=value1&attribute2=value2";
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
